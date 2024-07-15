@@ -1,0 +1,11 @@
+.common-body {
+  height: calc(100% - 48px);
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.common-body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}

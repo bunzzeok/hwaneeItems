@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+//font
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+//tag reset
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    #root {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+html,
+body,
+nav,
+article,
+div,
+p,
+span,
+ul,
+li,
+img,
+input,
+label,
+select,
+textarea,
+table,
+thead,
+tbody,
+tr,
+td,
+audio {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  outline: 0 none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  font-family: "Pretendard", "Malgun Gothic", "맑은고딕", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  word-break: keep-all;
+  overflow-x: auto;
+}
+
+nav,
+article,
+label {
+  display: block;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox  */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
