@@ -7,6 +7,31 @@ const Landing = () => {
 
   const [clickedCard, setClickedCard] = useState<any>();
 
+  const [mode, setMode] = useState<string>("pen");
+
+  const [penPointList, setPenPointList] = useState<any[]>([]);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleMode = (value: string) => {
+    setMode(value);
+  };
+
+  const handlePenPoint = (event: any) => {
+    console.log(event);
+    setPenPointList([
+      ...penPointList,
+      {
+        items: {
+          width: 10,
+          height: 10,
+          top: event.pageY - 82,
+          left: event.pageX - 10,
+        },
+        key: setNewId().toFixed(),
+      },
+    ]);
+  };
+
   const addCard = (): void => {
     setList([
       ...list,
@@ -37,7 +62,7 @@ const Landing = () => {
             ...item,
             items: {
               ...item.items,
-              width: item.items.width - event.pageY, // Y좌표를 top에 설정
+              width: item.items.width + event.pageY, // Y좌표를 top에 설정
               height: item.items.height - event.pageX, // X좌표를 left에 설정
             },
           };
@@ -69,8 +94,21 @@ const Landing = () => {
 
   return (
     <>
-      <div onClick={addCard}>addData</div>
-      <div draggable className="landing-body">
+      <div className="editer">
+        <div onClick={addCard}>addData</div>
+        <div
+          onClick={() => handleMode(mode === "pen" ? "" : "pen")}
+          style={{ border: mode === "pen" ? "1px solid black" : "" }}
+        >
+          pen
+        </div>
+      </div>
+      <div
+        onMouseDown={() => setIsClicked(true)}
+        onMouseUp={() => setIsClicked(false)}
+        onMouseMove={isClicked ? (event) => handlePenPoint(event) : () => {}}
+        className="landing-body"
+      >
         {list.map((item) => {
           return (
             <div
@@ -97,6 +135,19 @@ const Landing = () => {
                 className="size-point"
               ></div>
             </div>
+          );
+        })}
+
+        {penPointList.map((item) => {
+          return (
+            <div
+              key={item.key}
+              style={{
+                top: item.items.top + "px",
+                left: item.items.left + "px",
+              }}
+              className="penPoint"
+            ></div>
           );
         })}
       </div>
